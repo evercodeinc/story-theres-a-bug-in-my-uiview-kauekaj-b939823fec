@@ -31,6 +31,7 @@ final class ListView: UIView {
         super.init(frame: .zero)
 
         self.setupViews()
+        
     }
 
     required init?(coder: NSCoder) {
