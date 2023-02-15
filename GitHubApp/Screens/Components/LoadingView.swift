@@ -9,6 +9,14 @@ final class LoadingView: UIView {
         return view
     }()
     
+    private var loadingLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Loading..."
+        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
+        return label
+    }()
+    
     init() {
         super.init(frame: .zero)
         
@@ -26,14 +34,18 @@ final class LoadingView: UIView {
     func addSubviews() {
         
         addSubview(activityIndicatorView)
+        addSubview(loadingLabel)
     }
     
     func configureConstraints() {
         
         NSLayoutConstraint.activate([
         
+            loadingLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            loadingLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
             activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            activityIndicatorView.topAnchor.constraint(equalTo: loadingLabel.bottomAnchor, constant: 16)
         ])
     }
 }
