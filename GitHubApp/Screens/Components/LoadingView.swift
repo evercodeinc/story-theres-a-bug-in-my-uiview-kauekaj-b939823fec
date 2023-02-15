@@ -16,6 +16,7 @@ final class LoadingView: UIView {
         
         addSubviews()
         configureConstraints()
+        activityIndicatorView.startAnimating()
     }
     
     required init?(coder: NSCoder) {
